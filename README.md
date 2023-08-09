@@ -1,6 +1,8 @@
 # 文心千帆 Python SDK
 
-本库为文心千帆 Python SDK，非官方库,目前官方还没有 Python 的 SDK [文心千帆](https://cloud.baidu.com/product/wenxinworkshop)
+本库为文心千帆 Python SDK, 非官方库 ———— 目前官方还没有 Python 的 SDK。
+
+[文心千帆](https://cloud.baidu.com/product/wenxinworkshop)
 
 目前支持：
 
@@ -10,6 +12,8 @@
 * Embeddings
 
 ### 安装
+
+**PyPI地址：[https://pypi.org/project/erniepysdk/](https://pypi.org/project/erniepysdk/)**
 
 ```bash
 
