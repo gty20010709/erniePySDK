@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "erniePySDK"
-version = "0.1.0"
+version = "0.1.1"
 description = "百度千帆大模型平台的非官方 Python SDK"
 authors = ["theocheng <zlz_gty@foxmail.com>"]
 license = "Apache-2.0"
