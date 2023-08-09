@@ -48,19 +48,20 @@ class ErnieBot:
 
         else:
             with httpx.Client() as client:
-                resp = client.post(url=url, data=payload, headers=headers,timeout=60)
+                resp = client.post(url=url, data=payload, headers=headers, timeout=60)
                 yield resp.json()
 
-
     async def asyncChat(
-            self,
-            messages: List[Dict[str, str]],
-            stream: bool = False,
-            temperature: float = 0.95,
-            top_p: float = 0.8,
-            penalty_score: float = 1.0,
-    ) -> AsyncIterator[Dict[str,Any]]:
-        access_token = await asyncGetAccessToken(apiKey=self.apiKey, secretKey=self.secretKey)
+        self,
+        messages: List[Dict[str, str]],
+        stream: bool = False,
+        temperature: float = 0.95,
+        top_p: float = 0.8,
+        penalty_score: float = 1.0,
+    ) -> AsyncIterator[Dict[str, Any]]:
+        access_token = await asyncGetAccessToken(
+            apiKey=self.apiKey, secretKey=self.secretKey
+        )
         url = self.modelUrl + "?access_token=" + access_token
 
         payload = json.dumps(
@@ -86,5 +87,7 @@ class ErnieBot:
                             yield json.loads(data)
         else:
             async with httpx.AsyncClient() as client:
-                resp = await client.post(url=url, data=payload, headers=headers, timeout=60)
+                resp = await client.post(
+                    url=url, data=payload, headers=headers, timeout=60
+                )
                 yield resp.json()

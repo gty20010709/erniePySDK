@@ -1,7 +1,8 @@
-from erniePySDK import getAccessToken,asyncGetAccessToken
+from erniePySDK import getAccessToken, asyncGetAccessToken
 import httpx
 from typing import Any, AsyncIterator, List, Dict, Iterator
 import json
+
 
 class Bloomz7B:
     def __init__(
@@ -41,16 +42,17 @@ class Bloomz7B:
 
         else:
             with httpx.Client() as client:
-                resp = client.post(url=url, data=payload, headers=headers,timeout=60)
+                resp = client.post(url=url, data=payload, headers=headers, timeout=60)
                 yield resp.json()
 
-
     async def asyncChat(
-            self,
-            messages: List[Dict[str, str]],
-            stream: bool = False,
-    ) -> AsyncIterator[Dict[str,Any]]:
-        access_token = await asyncGetAccessToken(apiKey=self.apiKey, secretKey=self.secretKey)
+        self,
+        messages: List[Dict[str, str]],
+        stream: bool = False,
+    ) -> AsyncIterator[Dict[str, Any]]:
+        access_token = await asyncGetAccessToken(
+            apiKey=self.apiKey, secretKey=self.secretKey
+        )
         url = self.modelUrl + "?access_token=" + access_token
 
         payload = json.dumps(
@@ -73,5 +75,7 @@ class Bloomz7B:
                             yield json.loads(data)
         else:
             async with httpx.AsyncClient() as client:
-                resp = await client.post(url=url, data=payload, headers=headers, timeout=60)
+                resp = await client.post(
+                    url=url, data=payload, headers=headers, timeout=60
+                )
                 yield resp.json()

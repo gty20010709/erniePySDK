@@ -2,7 +2,7 @@ from ast import Dict
 from typing import List
 from erniePySDK import getAccessToken, asyncGetAccessToken
 import json
-import httpx 
+import httpx
 
 
 class EmbeddingV1:
@@ -32,13 +32,14 @@ class EmbeddingV1:
         with httpx.Client() as client:
             resp = client.post(url=url, data=payload, headers=headers, timeout=60)
         return resp.json()
-    
+
     async def asyncEmbedding(
-            self,
-            texts: List[str],
+        self,
+        texts: List[str],
     ) -> Dict:
-        
-        access_token = await asyncGetAccessToken(apiKey=self.apiKey, secretKey=self.secretKey)
+        access_token = await asyncGetAccessToken(
+            apiKey=self.apiKey, secretKey=self.secretKey
+        )
         url = self.modelUrl + "?access_token=" + access_token
         payload = json.dumps({"input": texts})
         headers = {"Content-Type": "application/json"}

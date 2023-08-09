@@ -1,5 +1,6 @@
 from erniePySDK import ErnieBot
 
+
 class ErnieBotTurbo(ErnieBot):
     def __init__(
         self,
