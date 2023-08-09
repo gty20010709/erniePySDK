@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "erniePySDK"
+version = "0.1.0"
+description = "百度千帆大模型平台的非官方 Python SDK"
+authors = ["theocheng <zlz_gty@foxmail.com>"]
+license = "Apache-2.0"
+readme = "README.md"
+repository = "https://github.com/gty20010709/erniePySDK"
+keywords = ["ernie", "baidu"]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+httpx = "^0.24.1"
+cachetools = "^5.3.1"
+asyncache = "^0.3.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
