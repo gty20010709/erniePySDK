@@ -9,6 +9,14 @@
 * BLOOMZ-7B
 * Embeddings
 
+### 安装
+
+```bash
+
+pip install erniePySDK
+
+```
+
 ### 使用示例
 ```py
 # ErnieBot 流式对话
