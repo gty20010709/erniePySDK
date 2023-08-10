@@ -25,7 +25,7 @@ pip install erniePySDK
 ```py
 # ErnieBot 流式对话
 # ErnieBotTurbo 和 ErnieBot 的调用方法，甚至参数都完全相同
-# Bloozm7B 和 ErrnieBot 的调用方法也完全相同，只是参数不同，少了 top_p 等几个参数
+# Bloozm7B 和 ErnieBot 的调用方法也完全相同，只是参数不同，少了 top_p 等几个参数
 import erniePySDK
 
 api_key = ""
