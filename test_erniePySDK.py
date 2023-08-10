@@ -6,6 +6,7 @@
 # 这个锅当由百度官方的API接口来背: 
 # 向 API 发送 post 请求时，需要提交 data， 在 httpx 中，data 应该时 Dict[str,Any] 格式
 # 但官方接口要求 str 格式的，所以需要 json.dumps(Dict[str,Any]) 
+# 如果传入 Dict[str,Any] 格式的数据，官方接口会报错： {'error_code': 336002, 'error_msg': 'Invalid JSON', 'id': 'as-kg400kq1hk'}
 # 这是警告的来源，可以可以忽视
 
 import erniePySDK
