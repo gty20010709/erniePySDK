@@ -30,7 +30,7 @@ class EmbeddingV1:
         payload = json.dumps({"input": texts})
         headers = {"Content-Type": "application/json"}
         with httpx.Client() as client:
-            resp = client.post(url=url, data=payload, headers=headers, timeout=60)
+            resp = client.post(url=url, data=payload, headers=headers, timeout=60) # type: ignore
         return resp.json()
 
     async def asyncEmbedding(
@@ -44,5 +44,5 @@ class EmbeddingV1:
         payload = json.dumps({"input": texts})
         headers = {"Content-Type": "application/json"}
         async with httpx.AsyncClient() as client:
-            resp = await client.post(url=url, data=payload, headers=headers, timeout=60)
+            resp = await client.post(url=url, data=payload, headers=headers, timeout=60) # type: ignore
         return resp.json()

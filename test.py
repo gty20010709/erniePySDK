@@ -114,4 +114,4 @@ async def testAsyncEmbeddingV1():
     print(r)
 
 if __name__ == "__main__":
-    asyncio.run(testAsyncEmbeddingV1())
+    asyncio.run(testErnieBotAsyncChatStream())

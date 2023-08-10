@@ -28,12 +28,13 @@ class Bloomz7B:
                 "stream": stream,
             }
         )
+
         headers = {"Content-Type": "application/json"}
 
         if stream:
             with httpx.Client() as client:
                 with client.stream(
-                    method="POST", url=url, data=payload, headers=headers
+                    method="POST", url=url, data=payload, headers=headers  # type: ignore
                 ) as resp:
                     for line in resp.iter_lines():
                         if line:
@@ -42,7 +43,7 @@ class Bloomz7B:
 
         else:
             with httpx.Client() as client:
-                resp = client.post(url=url, data=payload, headers=headers, timeout=60)
+                resp = client.post(url=url, data=payload, headers=headers, timeout=60)  # type: ignore
                 yield resp.json()
 
     async def asyncChat(
@@ -67,15 +68,15 @@ class Bloomz7B:
         if stream:
             async with httpx.AsyncClient() as client:
                 async with client.stream(
-                    method="POST", url=url, data=payload, headers=headers
+                    method="POST", url=url, data=payload, headers=headers # type: ignore
                 ) as resp:
-                    async for line in resp.content.iter_lines():
+                    async for line in resp.aiter_lines():
                         if line:
                             data = line.split("data: ")[1]
                             yield json.loads(data)
         else:
             async with httpx.AsyncClient() as client:
                 resp = await client.post(
-                    url=url, data=payload, headers=headers, timeout=60
+                    url=url, data=payload, headers=headers, timeout=60 # type: ignore
                 )
                 yield resp.json()
